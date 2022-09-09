@@ -1,0 +1,28 @@
+@use 'utils' as *;
+
+body > * {
+  width: min(85%, 40.625em);
+  margin-inline: auto;
+}
+
+.header {
+  margin-block: 5rem 2.25rem;
+}
+
+.main {
+  margin-bottom: 7rem;
+  @include brk-minwidth(small) {
+    margin-bottom: 4rem;
+  }
+}
+
+.newsletter {
+  
+  &__header-main {
+    margin-bottom: 0.625rem;
+  }
+  
+  &__header-sub {
+    margin-bottom: 2rem;
+  }
+}

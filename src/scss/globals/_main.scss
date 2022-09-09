@@ -1,0 +1,108 @@
+@use 'utils' as *;
+
+.newsletter {
+  margin-bottom: 4.5rem;
+  
+  &__form {
+    @include brk-minwidth(small) {
+      display: grid;
+      grid-template-columns: 70% 30%;
+      grid-template-areas: 
+        'input button' 
+        'error error';
+    }
+    
+    &__input, &__btn-submit {
+      width: 90%;
+      padding-block: 0.625em;
+      border-radius: 100vmax;
+      align-self: end;
+      @include brk-minwidth(small) {
+        width: 95%;
+      }
+      
+       &:hover {
+          cursor: pointer;
+          --clr-accent-400: hsla(223, 87%, 73%);
+        }
+        
+        &:focus {
+          outline: 3px dotted var(--clr-accent-400);
+          outline-offset: 0.2em;
+        }
+    }
+    
+    &__input {
+      grid-area: input;
+      justify-self: end;
+      border: 1px solid var(--clr-accent-300);
+      padding-inline: 2em;
+      transition: border-color 200ms ease-in;
+      @include brk-minwidth(small) {
+        padding-inline: 1.5em;
+      }
+      
+      &:valid {
+        border-color: var(--clr-accent-400);
+      }
+      
+      &:not(:placeholder-shown):invalid {
+        border-color: var(--clr-neutral-400);
+        outline-color: var(--clr-neutral-400);
+      }
+    }
+    
+    &__err-msg {
+      grid-area: error;
+      display: block;
+      height: 0em;
+      visibility: hidden;
+      padding-top: 0.5em;
+      overflow: hidden;
+      transition: height 500ms ease, visibility 0ms 500ms;
+      @include brk-minwidth(small) {
+        padding-left: 2.5em;
+      }
+      
+      & > em {
+        display: block;
+        transform: translateY(-100%);
+        transition: transform 500ms ease-in;
+      }
+    }
+    
+    
+    &__btn-submit {
+      grid-area: button;
+      justify-self: start;
+      background-color: var(--clr-accent-400);
+      border: none;
+      margin-top: 0.625rem;
+      box-shadow: 0 5px 10px var(--clr-accent-300, 0.5);
+      transition: background-color 200ms ease;
+      
+      &:active {
+        transform: scale(95%, 95%);
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+/* ERROR MESSAGE FUNCTIONALITY */
+.newsletter__form__input:not(:placeholder-shown):not(:focus):invalid + .newsletter__form__err-msg,
+/* linked with js */
+.active-err .newsletter__form__err-msg {
+  height: 3em;
+  visibility: visible;
+  transition: height 500ms ease, visibility 0ms 0ms;
+  
+  & > em {
+    transform: translateY(0%);
+  }
+}
+
+.active-err .newsletter__form__input {
+  border-color: var(--clr-neutral-400);
+  outline-color: var(--clr-neutral-400);
+}

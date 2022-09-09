@@ -1,0 +1,11 @@
+@use 'utils' as *;
+
+.header {
+  
+  img {
+    width: 3.5rem;
+    @include brk-minwidth(small) {
+      width: 6rem;
+    }
+  }
+}

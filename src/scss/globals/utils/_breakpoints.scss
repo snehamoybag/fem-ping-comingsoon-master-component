@@ -1,0 +1,11 @@
+$breakpoints: (
+  'small': 40em,
+  'medium': 65em,
+  'large': 90em,
+);
+
+@mixin brk-minwidth($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}

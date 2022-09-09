@@ -1,0 +1,26 @@
+{
+  "name": "fem-ping-coming-soon-master-component",
+  "version": "1.0.0",
+  "description": "![Design preview for the Ping coming soon page coding challenge](./design/desktop-preview.jpg)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite src",
+    "build": "rm -rf dist && vite build src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snehamoybag/fem-ping-comingsoon-master-component.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snehamoybag/fem-ping-comingsoon-master-component/issues"
+  },
+  "homepage": "https://github.com/snehamoybag/fem-ping-comingsoon-master-component",
+  "devDependencies": {
+    "gh-pages": "^4.0.0",
+    "sass": "^1.54.9",
+    "vite": "^3.1.0"
+  }
+}

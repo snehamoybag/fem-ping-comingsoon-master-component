@@ -1,0 +1,95 @@
+@use 'utils' as *;
+
+:root {
+  --ff-body: 'Libre Franklin', sans-serif;
+  
+  --fw-regular: 300;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+  
+  --fs-300: 0.6875rem;
+  --fs-400: 0.875rem;
+  --fs-700: 1.5rem;
+  
+  @include brk-minwidth(small) {
+    --fs-300: 0.875rem;
+    --fs-400: 1.2rem;
+    --fs-700: 2.875rem;
+  }
+}
+
+body {
+  font-family: var(--ff-body);
+  font-weight: var(--fw-regular);
+  color: var(--clr-primary-400);
+}
+
+.newsletter {
+  &__header-main {
+    font-size: var(--fs-700);
+    
+    &_dark-bold {
+      font-weight: var(--fw-bold);
+      color: var(--clr-primary-900);
+    }
+  }
+  
+  &__header-sub {
+    font-size: var(--fs-400);
+    color: var(--clr-primary-900);
+  }
+    
+  &__form {
+    
+    &__input, &__btn-submit{
+      font-size: var(--fs-400);
+    }
+    
+    &__input {
+      color: var(--clr-primary-900);
+      
+      &::placeholder {
+        color: var(--clr-accent-300);
+      }
+    }
+    
+    &__err-msg {
+      font-size: var(--fs-300);
+      font-style: italic;
+      color: var(--clr-neutral-400);
+      text-align: center;
+      @include brk-minwidth(small) {
+        text-align: left;
+      }
+    }
+    
+    &__btn-submit {
+      font-weight: var(--fw-semi-bold);
+      color: var(--clr-primary-100);
+    }
+  }
+}
+
+.attributions {
+  
+  & > p {
+    font-size: var(--fs-400);
+  }
+  
+  & a {
+    text-decoration: none;
+    color: var(--clr-accent-400);
+    
+    &:hover, &:active, &:visited {
+      color: var(--clr-accent-300);
+    }
+  }
+}
+
+.footer {
+  line-height: 2;
+  
+  &__copyright {
+    font-size: var(--fs-300);
+  }
+}
